@@ -3,44 +3,44 @@ import java.util.Comparator;
 
 public class Main {
     public static void main(String[] args) {
-//        Person[] list = {
-//                new Person("K", 2000, 165),
-//                new Person("B", 2006, 171),
-//                new Person("K", 2000, 168),
-//                new Person("H", 2000, 171),
-//                new Person("M", 2002, 173),
-//                new Person("K", 1999, 169),
-//        };
-//
-//        Arrays.sort(list);
-//        writeL(list, "Natural: name,age,height");
-//
-//        Arrays.sort(list, new Comp1());
-//        writeL(list, "Comp1: height, age, name,");
-//
-//        Comparator<Person> comp2 = new Comp2();
-//        Arrays.sort(list, comp2);
-//        writeL(list, "Comp1:  age, name, height,");
-//
-//
-//        Arrays.sort(list, new Comparator<Person>() {
-//            @Override
-//            public int compare(Person p, Person q) {
-//                // Compare by name (case-insensitive)
-//                int k = p.name().compareToIgnoreCase(q.name());
-//                if (k != 0) return k;
-//                // If names are the same, compare by height
-//                k = p.height() - q.height();
-//                if (k != 0) return k;
-//                // If heights are the same, compare by birth year (descending/age ascending)
-//                return q.bYear() - p.bYear();
-//            }
-//        });
-//        writeL(list, "Anonym: name,height,age");
-//
-//        // lambda
-//        Arrays.sort(list, (f, s) -> s.height() - f.height());
-//        writeL(list, "Lambda: height, descending");
+        Person[] list = {
+                new Person("K", 2000, 165),
+                new Person("B", 2006, 171),
+                new Person("K", 2000, 168),
+                new Person("H", 2000, 171),
+                new Person("M", 2002, 173),
+                new Person("K", 1999, 169),
+        };
+
+        Arrays.sort(list);
+        writeL(list, "Natural: name,age,height");
+
+        Arrays.sort(list, new Comp1());
+        writeL(list, "Comp1: height, age, name,");
+
+        Comparator<Person> comp2 = new Comp2();
+        Arrays.sort(list, comp2);
+        writeL(list, "Comp1:  age, name, height,");
+
+
+        Arrays.sort(list, new Comparator<Person>() {
+            @Override
+            public int compare(Person p, Person q) {
+                // Compare by name (case-insensitive)
+                int k = p.name().compareToIgnoreCase(q.name());
+                if (k != 0) return k;
+                // If names are the same, compare by height
+                k = p.height() - q.height();
+                if (k != 0) return k;
+                // If heights are the same, compare by birth year (descending/age ascending)
+                return q.bYear() - p.bYear();
+            }
+        });
+        writeL(list, "Anonym: name,height,age");
+
+        // lambda
+        Arrays.sort(list, (f, s) -> s.height() - f.height());
+        writeL(list, "Lambda: height, descending");
 
         // another way to do
 
@@ -91,13 +91,24 @@ public class Main {
 
         Person1.show(persons, "Order by lambda : " +
                 "by age descending, then name descending");
+
+        Outer out1 = new Outer("out1");
+        Outer.Inner inn1 = out1.getInner("inn1");
+        Outer.Inner inn2 = out1.new Inner("inn2");
+        System.out.println("hehe");
+        System.out.println(out1);
+        System.out.println(inn1);
+        System.out.println(inn2);
+        System.out.println("hehe");
+        System.out.println(out1.getClass().getName());
+        System.out.println(inn1.getClass().getName());
+        System.out.println(inn2.getClass().getName());
+
     }
 
-//    }
-//    static void writeL(Person[] list, String header) {
-//        System.out.println('\n' + header);
-//        for (Person p : list) System.out.print(p + " ");
-//        System.out.println();
-//    }
-
+    static void writeL(Person[] list, String header) {
+        System.out.println('\n' + header);
+        for (Person p : list) System.out.print(p + " ");
+        System.out.println();
+    }
 }
