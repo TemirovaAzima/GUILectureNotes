@@ -1,3 +1,5 @@
+import org.w3c.dom.Node;
+
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -94,7 +96,8 @@ public class Main {
 
         Outer out1 = new Outer("out1");
         Outer.Inner inn1 = out1.getInner("inn1");
-        Outer.Inner inn2 = out1.new Inner("inn2");
+        Outer.Inner inn2 = new Outer.Inner("hello");
+//        Outer.Inner inn2 = out1.new Inner("inn2");
         System.out.println("hehe");
         System.out.println(out1);
         System.out.println(inn1);
@@ -103,6 +106,15 @@ public class Main {
         System.out.println(out1.getClass().getName());
         System.out.println(inn1.getClass().getName());
         System.out.println(inn2.getClass().getName());
+
+
+        // Stack
+        MyStack stInt = new MyStack();
+        for(int i = 5; i>0; i--)
+            stInt.push(i);
+        while (!stInt.empty())
+            System.out.println(stInt.pop() + " ");
+        System.out.println();
 
     }
 

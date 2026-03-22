@@ -5,13 +5,13 @@ public class Outer {
     private String sOut;
     Outer(String s ) { sOut = s;}
 
-    class Inner {
+    static class Inner {
         private String sInn;
         Inner(String s) {sInn = s;}
         @Override
         public String toString(){
             return "Inner-" + sInn + " parent " +
-                    "Outer-" + Outer.this.sOut;
+                    "Outer-" ;
         }
     }
     public Inner getInner(String i){
