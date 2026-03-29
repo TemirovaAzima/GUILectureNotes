@@ -22,7 +22,5 @@ public class IFacesLam {
 
         String strFold = Tools.fold1((lhs,rhs)-> lhs + rhs,strRes,"");
         System.out.println(strFold);
-
-
     }
 }
